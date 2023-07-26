@@ -13,3 +13,20 @@ th,td{
     border: 1px solid #333;
     min-width: 80px;
 }
+
+td:focus{
+    outline: none;
+}
+
+#bold-btn{
+    font-weight: 900;
+}
+
+#italics-btn{
+    font-weight: italic;
+}
+
+#underline-btn{
+    font-weight:900;
+    text-decoration: underline;
+}
