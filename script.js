@@ -3,10 +3,23 @@ const tBody =document.getElementById('table-body');
 const boldButton = document.getElementById('bold-btn');
 const italicsButton = document.getElementById('italics-btn');
 const underlineButton = document.getElementById('underline-btn');
+const leftAlign = document.getElementById('left-align');
+const centerAlign = document.getElementById('center-align');
+const rightAlign = document.getElementById('right-align');
+const fontSizeDropDown = document.getElementById('font-size');
+const fontFamilyDropDown = document.getElementById('font-family');
+const bgColorSelect =document.getElementById('bgColor');
+const textColorSelect = document.getElementById('textColor')
+const cutButton = document.getElementById('cut-button');
+const copyButton = document.getElementById('copy-button');
+const pasteButton = document.getElementById('paste-button');
+
 
 const columns=26;
 const rows=100;
 let currentCell;
+let cutCell={};
+let lastPressButton;
 
 for(let col=0;col<columns;col++){
     let th = document.createElement('th');
@@ -40,6 +53,15 @@ for(let row=1;row<=rows;row++){
 
     }
     tBody.append(tr);
+}
+
+let matrix =new Array(rows);
+//let matrix=[];
+for(let row=0;row<rows;row++){
+    matrix[row]=new Array(columns);
+    for(col=0;col<columns;col++){
+        matrix[row][col]={};
+    }
 }
 
 function onFocusFn(event){
@@ -88,3 +110,77 @@ underlineButton.addEventListener('click',()=>{
 
     // currentCell.style.fontStyle=currentCell.style.fontStyle==='underline' ? 'normal':'underline';
 })
+
+leftAlign.addEventListener('click',()=>{
+    currentCell.style.textAlign='left';
+})
+
+centerAlign.addEventListener('click',()=>{
+    currentCell.style.textAlign='center';
+})
+
+rightAlign.addEventListener('click',()=>{
+    currentCell.style.textAlign='right';
+})
+
+fontSizeDropDown.addEventListener('change',()=>{
+    currentCell.style.fontSize =fontSizeDropDown.value;
+})
+
+fontFamilyDropDown.addEventListener('change',()=>{
+    currentCell.style.fontFamily =fontFamilyDropDown.value;
+})
+
+bgColorSelect.addEventListener('change',()=>{
+    currentCell.style.backgroundColor=bgColorSelect.value;
+})
+
+textColorSelect.addEventListener('input',()=>{
+    currentCell.style.color=textColorSelect.value;
+})
+
+//input event create performance issue->due to occur many eventy at a time.
+
+cutButton.addEventListener('click',()=>{
+    cutCell={
+        style:currentCell.style.cssText,
+        text:currentCell.innerText,
+    }
+    currentCell.innerText='';
+    currentCell.style.cssText='';
+    lastPressButton='cutButton'
+})
+
+pasteButton.addEventListener('click',()=>{
+    currentCell.innerText=cutCell.text;
+    currentCell.style.cssText=cutCell.style; //currentCell.style=cutCell.style;
+    if(lastPressButton==='cutButton'){
+        cutCell={};
+    }
+})
+
+copyButton.addEventListener('click',()=>{
+    cutCell={
+        style:currentCell.style.cssText,
+        text:currentCell.innerText,
+    } 
+    lastPressButton='copyButton'
+})
+
+/*
+[
+    [{},{},],
+    [{},{},],
+    [{},{}]
+]
+*/
+
+/*
+[
+    [{},{},{}],
+    [{},{},{}]
+]
+*/
+
+
+

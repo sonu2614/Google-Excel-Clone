@@ -5,11 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Excel</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
 </head>
 <body>
     <button id="bold-btn">B</button>
     <button id="italics-btn">I</button>
     <button id="underline-btn">U</button>
+    <button id="left-align"><i class="fa-solid fa-align-left"></i></button>
+    <button id="center-align"><i class="fa-solid fa-align-center"></i></button>
+    <button id="right-align"><i class="fa-solid fa-align-right"></i></button>
+
+    <select id="font-size">
+        <option value="1px">1</option>
+        <option value="2px">2</option>
+        <option value="3px">3</option>
+        <option value="4px">4</option>
+        <option value="5px">5</option>
+        <option value="6px">6</option>
+        <option value="7px">7</option>
+        <option value="8px">8</option>
+        <option value="9px">9</option>
+        <option value="10px">10</option>
+        <option value="11px">11</option>
+        <option value="12px">12</option>
+        <option value="13px">13</option>
+        <option value="14px">14</option>
+        <option value="15px">15</option>
+        <option value="16px">16</option>
+        <option value="17px">17</option>
+        <option value="18px">18</option>
+        <option value="19px">19</option>
+        <option value="20px">20</option>
+        <option value="21px">21</option>
+        <option value="22px">22</option>
+        <option value="23px">23</option>
+        <option value="24px">24</option>
+        <option value="25px">25</option>
+        <option value="26px">26</option>
+        <option value="27px">27</option>
+        <option value="28px">28</option>
+        <option value="29px">29</option>
+        <option value="30px">30</option>
+    </select>
+    <select id="font-family">
+        <option value="serif">serif</option>
+        <option value="sans-serif">sans-serif</option>
+        <option value="cursive">cursive</option>
+        <option value="system-ui">system-ui</option>
+        <option value="Gill Sans">Gill Sans</option>
+    </select>
+    <br/>
+    <br/>
+    <button id="cut-button">Cut</button>
+    <button id="copy-button">Copy</button>
+    <button id="paste-button">Paste</button>
+
+    <!-- background color -->
+    <label for="bgColor">Bg color</label>
+    <input type="color" id="bgColor"/>
+    <label for="textColor">text color</label>
+    <!-- text color -->
+    <input type="color" id="textColor"/>
+    <br/>
+    <br/>
+
+
+    
     <table id="my-table">
         <thead>
             <tr id="table-heading-row">
